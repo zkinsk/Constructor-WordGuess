@@ -1,0 +1,23 @@
+{
+  "name": "constructor-wordguess",
+  "version": "1.0.0",
+  "description": "Word Guess with Constructors",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^6.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkinsk/Constructor-WordGuess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zkinsk/Constructor-WordGuess/issues"
+  },
+  "homepage": "https://github.com/zkinsk/Constructor-WordGuess#readme"
+}
