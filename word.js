@@ -1,8 +1,12 @@
 var Letter = require("./letter");
 
+
 var Word = function(){
   this.newWordArr = [];
+
+  //new word function - populates new word array with letter objects
   this.newWord = function(word){
+    this.newWordArr = [];
     for (x in word){
       var hiddenLetter = new Letter(word[x]);
       this.newWordArr.push(hiddenLetter);
@@ -11,9 +15,9 @@ var Word = function(){
     for (x in this.newWordArr){
       response += this.newWordArr[x].logLetter();
     }
-    console.log(response)
+    return response;
   }//end of newWord
-
+  
   this.guessLetter = function(gL){
     gL = gL.toUpperCase();
     let guessingWord = "";
@@ -22,7 +26,7 @@ var Word = function(){
       let response = this.newWordArr[x].logLetter();
       guessingWord += response;
     }
-    console.log(guessingWord);
+    return guessingWord;
   }//end of guessLetter
 }//end of word const
 
