@@ -20,4 +20,14 @@ var Letter = function(name){
   }//end of compare
 }//end of const
 
+Letter.prototype.toString = () => {
+  if (this.name === " "){
+    return "  ";
+ }else{
+    if (!this.guessed){
+     return "_ "
+    }else {return this.name}
+ }
+}
+
 module.exports = Letter;

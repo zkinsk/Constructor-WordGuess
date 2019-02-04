@@ -4,6 +4,7 @@
   "description": "Word Guess with Constructors",
   "main": "index.js",
   "dependencies": {
+    "colors": "^1.3.3",
     "inquirer": "^6.2.1"
   },
   "devDependencies": {},

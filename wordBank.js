@@ -1,3 +1,18 @@
+var fs = require('fs');
+
+var wordFile = function(){
+  fs.readFile("wordlist.txt", "utf8", function(error, data) {
+    if (error) {
+      return console.log(error);
+    }
+    dataArr = data.split("\n");
+    // console.log(dataArr);
+    // return dataArr
+  });
+}
+
+// console.log(wordFile());
+
 var WordBank = function(){
   this.wordArr = [
   "Barracuda", 

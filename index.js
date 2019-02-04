@@ -1,6 +1,7 @@
 var inquirer = require('inquirer');
 var Word = require("./word");
 var WordBank = require("./wordBank");
+var colors = require('colors/safe')
 var word = new Word;
 var wordBank = new WordBank;
 
@@ -19,13 +20,14 @@ function guess(cWord){
       let currentGuess = answers.letter.toUpperCase();
       if (currentGuess === "STOP"){return}
       if (guessedLetters.includes(currentGuess)){
-        console.log("You have already chosen that letter");
+        console.log(colors.red("\nYou have already chosen that letter\n"));
         playRound(cWord);
       }else{
         guessedLetters += currentGuess;
         let bWord = word.guessLetter(currentGuess);
         if (bWord === cWord){
           guessLeft --
+          console.log(colors.trap("\nSorry, you guess a wrong letter"))
         }
         if (guessLeft === 0){
           endGame(false)
@@ -43,7 +45,7 @@ var startNewWord = () => {
   }else{
     guessLeft = totalGuesses;
     guessedLetters = "";
-    console.log(wBw);
+    // console.log(wBw);
     word.newWord(wBw); //build new array with letter objects
     let x = word.guessLetter("");
     playRound(x);
@@ -52,14 +54,14 @@ var startNewWord = () => {
 
 var playRound = (bWord) => {
   if (bWord.includes("_")){
-    console.log(bWord);
-    console.log(`You have ${guessLeft} guess${ess(guessLeft)} left.`)
+    console.log("\n" + bWord);
+    console.log(colors.green.underline(`You have ${guessLeft} guess${ess(guessLeft)} left.`))
     setTimeout(function(){
       guess(bWord)
     }, 500)
   }else{
-    console.log("Good Job!");
-    console.log("You Guessed: " + bWord);
+    console.log(colors.yellow("\n\nGood Job!\n"));
+    console.log(colors.yellow("You Guessed: " + bWord + "\n\n"));
     setTimeout(function(){
       startNewWord();
     }, 500)
@@ -69,8 +71,8 @@ var playRound = (bWord) => {
 
 var endGame = (result) => {
   if (result){
-    console.log("You figured them all")
-  }else{console.log("Sorry, you ran out of guesses..")}
+    console.log(colors.red.bold("You figured them all"))
+  }else{console.log(colors.inverse("Sorry, you ran out of guesses.. GAME OVER"))}
 } // end of end game
 
 var ess = (x) => {
@@ -78,5 +80,6 @@ var ess = (x) => {
     return "es"
   }else{return ""}
 }
-
+console.log(colors.red.bold("\n\nAre you ready to play a constructor based ocean creature word guess game? "))
+console.log(colors.red.bold(`Of Course you are, there are ${wordBank.wordArr.length} words in total to guess!\n`))
 startNewWord();
