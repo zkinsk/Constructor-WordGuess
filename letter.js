@@ -20,6 +20,7 @@ var Letter = function(name){
   }//end of compare
 }//end of const
 
+//made this prototype per instructions from assignment, but didn't end up needing it
 Letter.prototype.toString = () => {
   if (this.name === " "){
     return "  ";

@@ -64,7 +64,7 @@ var playRound = (bWord) => {
     console.log(colors.yellow("You Guessed: " + bWord + "\n\n"));
     setTimeout(function(){
       startNewWord();
-    }, 500)
+    }, 1000)
   }
 
 }//end of playRound fn
