@@ -3,7 +3,8 @@ var Word = require("./word");
 var WordBank = require("./wordBank");
 var colors = require('colors/safe')
 var word = new Word;
-var wordBank = new WordBank;
+var wordBank;
+// var wordBank = new WordBank;
 
 const totalGuesses = 6;
 var guessLeft;
@@ -80,6 +81,10 @@ var ess = (x) => {
     return "es"
   }else{return ""}
 }
-console.log(colors.red.bold("\n\nAre you ready to play a constructor based ocean creature word guess game? "))
-console.log(colors.red.bold(`Of Course you are, there are ${wordBank.wordArr.length} words in total to guess!\n`))
-startNewWord();
+
+setTimeout(function(){
+  wordBank = new WordBank;
+  console.log(colors.red.bold("\n\nAre you ready to play a constructor based ocean creature word guess game? "))
+  console.log(colors.red.bold(`Of Course you are!!! There are ${wordBank.wordArr.length} words in total to guess!\n`))
+  startNewWord()
+}, 500)
