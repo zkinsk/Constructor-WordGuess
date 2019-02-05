@@ -21,7 +21,7 @@ I have used 4 modules to build this game:
 ### wordbank module
   contains an array of words to be guess
   The word bank has only 1 method: 
-  - To return a no repeated random word from the list of words
+  - To return a non repeated random word from a list of words contained in a text file
  
 
 
