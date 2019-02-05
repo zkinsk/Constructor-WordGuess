@@ -56,8 +56,8 @@ var startNewWord = () => {
 var playRound = (bWord) => {
   if (bWord.includes("_")){
     // console.log(colors.green.underline(`You have ${guessLeft} guess${ess(guessLeft)} left.`))
-    console.log(colors.magenta(hangGuy[guessLeft]));
-    console.log(colors.cyan(bWord + "\n"));
+    console.log(colors.cyan(hangGuy[guessLeft]));
+    console.log(colors.magenta(bWord + "\n"));
     setTimeout(function(){
       guess(bWord)
     }, 500)
