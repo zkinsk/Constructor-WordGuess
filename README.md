@@ -2,9 +2,17 @@
 
 Create a hangman word guess game using node constructors to modularize the code.
 
-I have used 4 modules to build this game: 
+Here is a video showing its functionality [Link](https://youtu.be/yRfOM9_7NuQ)
+
+I have used 5 modules to build this game: 
 ### main index
-  Houses the main game logic and brings all the other modules together
+  - Houses the main game logic
+    - Console logs blank word
+    - Calls functions when a letter is guessed
+    - performs logic to determin if a letter is a match
+    - re-prints wthe blank word with correct letter guess if there is a match
+    - brings all the other modules together
+    - console logs the hangman dude
   
 ### letter module
   Contains the letter constructor
@@ -22,6 +30,9 @@ I have used 4 modules to build this game:
   contains an array of words to be guess
   The word bank has only 1 method: 
   - To return a non repeated random word from a list of words contained in a text file
+  
+### Hangman Dude Module
+  contains an array of the different states of the hangman
  
 
 
