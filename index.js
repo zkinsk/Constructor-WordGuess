@@ -1,12 +1,12 @@
 var inquirer = require('inquirer');
 var Word = require("./word");
 var WordBank = require("./wordBank");
-var colors = require('colors/safe')
+var colors = require('colors/safe');
+var hangGuy = require('./hangGuy');
 var word = new Word;
 var wordBank;
-// var wordBank = new WordBank;
 
-const totalGuesses = 6;
+const totalGuesses = 7;
 var guessLeft;
 var guessedLetters = "";
 
@@ -28,7 +28,7 @@ function guess(cWord){
         let bWord = word.guessLetter(currentGuess);
         if (bWord === cWord){
           guessLeft --
-          console.log(colors.trap("\nSorry, you guess a wrong letter"))
+          console.log(colors.blue("\nSorry, you guess a wrong letter"))
         }
         if (guessLeft === 0){
           endGame(false)
@@ -55,8 +55,9 @@ var startNewWord = () => {
 
 var playRound = (bWord) => {
   if (bWord.includes("_")){
-    console.log("\n" + bWord);
-    console.log(colors.green.underline(`You have ${guessLeft} guess${ess(guessLeft)} left.`))
+    // console.log(colors.green.underline(`You have ${guessLeft} guess${ess(guessLeft)} left.`))
+    console.log(colors.magenta(hangGuy[guessLeft]));
+    console.log(colors.cyan(bWord + "\n"));
     setTimeout(function(){
       guess(bWord)
     }, 500)
@@ -73,7 +74,10 @@ var playRound = (bWord) => {
 var endGame = (result) => {
   if (result){
     console.log(colors.red.bold("You figured them all"))
-  }else{console.log(colors.inverse("Sorry, you ran out of guesses.. GAME OVER"))}
+  }else{
+    console.log(colors.inverse("Sorry, you ran out of guesses.. GAME OVER"));
+    console.log(colors.red(hangGuy[guessLeft]));
+  }
 } // end of end game
 
 var ess = (x) => {
